@@ -6,6 +6,7 @@ import csv
 import numpy as np
 
 headers = ['COMMENT_ID', 'AUTHOR', 'DATE', 'CONTENT', 'TAG']
+class_names = ['Not Spam', 'Spam']
 
 
 def _get_data():

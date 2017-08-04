@@ -11,7 +11,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-from _data_loader import load_data
+from _data_loader import load_data, class_names
 
 
 class CommentClassifier(object):
@@ -48,7 +48,6 @@ class CommentClassifier(object):
         print '*' * 10
 
         y_pred = self.model.predict(self.data['X_test'][:, 3])
-        class_names = ['Spam', 'Not Spam']
 
         # Compute confusion matrix
         cnf_matrix = confusion_matrix(self.data['y_test'], y_pred)
@@ -103,11 +102,11 @@ class CommentClassifier(object):
 
         print 'Predictions on some unseen examples'
 
-        for i, prediction in enumerate(self.model.predict(self.data['X_test'][0:5, 3])):
+        for i, prediction in enumerate(self.model.predict(self.data['X_test'][0:10, 3])):
             print '*'*10
             print 'Example: {}'.format(self.data['X_test'][i])
-            print 'Expected result: {}'.format(self.data['y_test'][i])
-            print 'Prediction: {}'.format(prediction)
+            print 'Expected result: {}'.format(class_names[int(self.data['y_test'][i])])
+            print 'Prediction: {}'.format(class_names[int(prediction)])
 
 
 def main():

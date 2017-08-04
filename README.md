@@ -21,31 +21,30 @@ python classifier.py
 
 ```
 **********
-Example: ['z13ttr3z1kybet3io04cfv2icvbtj3ro120' 'ZRSFirelordGaming'
- '2015-05-16T18:17:34.524000'
- 'XD I WAS GOING CRAZY FUCKIN CRAZY WATCHIN THIS BRAH\xef\xbb\xbf']
-Expected result: 0
-Prediction: 0
+Example: ['z12jc1uququpzbsoq04cg15poyfsxpvoojw' 'pro stomper' '2014-11-05T15:27:34'
+ 'guys please subscribe me to help my channel grow please guys\xef\xbb\xbf']
+Expected result: Spam
+Prediction: Spam
 **********
-Example: ['z12tclby1nuyflgbw04cdnyg3zfvefn5lrg0k' 'Technibility'
- '2014-09-12T21:08:47'
- 'Great video by a great artist in Katy Perry! Admire her creativity! Check  out our channel for no nonsense mobile tech reviews and comparisons as well  as an iPhone 6 and 6 Plus review and comparison!\xef\xbb\xbf']
-Expected result: 1
-Prediction: 1
+Example: ['z133ibkihkmaj3bfq22rilaxmp2yt54nb' 'Debora Favacho (Debora Sparkle)'
+ '2015-05-21T14:08:41.338000' 'BEST SONG EVER X3333333333\xef\xbb\xbf']
+Expected result: Not Spam
+Prediction: Not Spam
 **********
-Example: ['z13pitkr5prbgf3ja04cjjg4qme3txjpyqc0k' 'Yeung Marvin'
- '2014-11-12T23:56:54'
- 'Haha its so funny to see the salt of westerners that top views of youtube  goes to video they dont even understand, keep the salt up!\xef\xbb\xbf']
-Expected result: 0
-Prediction: 0
+Example: ['z135jfhquofkjjxam04cdraphzuxxry4iso0k' 'Shaun Mac' '2014-10-26T20:10:46'
+ 'Also LuckyMusiqLive she probably could help u make it big because I think u  have talent. Just look her name up on the internet. Hit me up when u get  this message\xef\xbb\xbf']
+Expected result: Spam
+Prediction: Spam
 **********
-Example: ['z13ighawfwy5y5t5a04ccnp5dozetzfpq0g' 'Snipe Last' '2014-09-22T19:34:46'
- 'why the elephant have a broken horn\xef\xbb\xbf']
-Expected result: 0
-Prediction: 0
+Example: ['_2viQ_Qnc6_ZYkMn1fS805Z6oy8ImeO6pSjMLAlwYfM' 'mile panika'
+ '2013-11-03T14:39:42.248000'
+ 'I absolutely adore watching football plus I\xe2\x80\x99ve started earning income with out risk from claiming bonus deals. It\xe2\x80\x99s a weird technique where you put money on something with one bookmakers and put money against it on Betfair. You acquire the bonus as income . A lad named Jim Vanstone is selecting the wagers free on his website Vanstone Secrets (Google it!). I have generated about 600 quid so far. And it\xe2\x80\x99s free. I assume the bookmakers pay him to get new men and women, but it succeeds.']
+Expected result: Spam
+Prediction: Spam
 **********
-Example: ['z13xjfr42z3uxdz2223gx5rrzs3dt5hna' 'Jihad Naser' ''
- 'Hello I&#39;am from Palastine\xef\xbb\xbf']
-Expected result: 1
-Prediction: 0
+Example: ['z13eszqb3vejd3il423aslfyqnrzh5kto' 'Malyka Mason'
+ '2014-11-09T13:59:14.102000'
+ 'Check out this video on YouTube:it is a old track but it still bad\xef\xbb\xbf']
+Expected result: Spam
+Prediction: Spam
 ```
