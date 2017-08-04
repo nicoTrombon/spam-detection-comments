@@ -2,14 +2,27 @@
 Algorithm for detection of spam in Youtube video comments
 
 # How to use
+## Setup
 ```
 git clone https://github.com/nicoTrombon/spam-detection-comments.git
 cd spam-detection-comments
 virtualenv env
 source env/bin/activate
 pip install requirements.txt
-python classifier.py
 ```
+## Train model and show some examples
+python classifier.py
+## Predicting on a custom comment
+__on a python shell__
+```
+>> from classfier import *
+>> your_custom_comment = 'Great video! Really enjoyed it =)'
+>> clf = CommentClassifier
+>> clf.build_pipeline()
+>> clf.grid_search()
+>> clf.predict_example(your_custom_comment)
+```
+
 
 # Results
 

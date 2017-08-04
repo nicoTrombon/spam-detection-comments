@@ -96,7 +96,7 @@ class CommentClassifier(object):
 
 
 
-    def predict_examples(self):
+    def predict_sample(self):
         if not self.fitted:
             raise Exception('You must run grid_search to fit the model first!')
 
@@ -108,13 +108,26 @@ class CommentClassifier(object):
             print 'Expected result: {}'.format(class_names[int(self.data['y_test'][i])])
             print 'Prediction: {}'.format(class_names[int(prediction)])
 
+    
+    def predict_example(self, comment):
+        if not self.fitted:
+            raise Exception('You must run grid_search to fit the model first!')
+
+        print 'Input:'
+        print comment
+        print '-'*5
+
+        print 'Prediction:'
+        print class_names[int(self.model.predict([comment])[0])]
+
+
 
 def main():
     clf = CommentClassifier()
     clf.build_pipeline()
     clf.grid_search()
     clf.predict_test_set()
-    clf.predict_examples()
+    clf.predict_sample()
 
 
 if __name__ == '__main__':
