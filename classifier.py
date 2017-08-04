@@ -3,6 +3,13 @@ from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.pipeline import Pipeline
 from sklearn.model_selection import GridSearchCV
+from sklearn.metrics import confusion_matrix
+
+
+import itertools
+import numpy as np
+import matplotlib.pyplot as plt
+
 
 from _data_loader import load_data
 
@@ -32,11 +39,69 @@ class CommentClassifier(object):
         self.model.fit(self.data['X_train'][:, 3], self.data['y_train'])
         self.fitted = True
 
+
+    def predict_test_set(self):
+        if not self.fitted:
+            raise Exception('You must run grid_search to fit the model first!')
+        print '*' * 10
+        print 'Results of prediction on unseen data'
+        print '*' * 10
+
+        y_pred = self.model.predict(self.data['X_test'][:, 3])
+        class_names = ['Spam', 'Not Spam']
+
+        # Compute confusion matrix
+        cnf_matrix = confusion_matrix(self.data['y_test'], y_pred)
+        np.set_printoptions(precision=2)
+
+        # Plot normalized confusion matrix
+        plt.figure()
+        self.plot_confusion_matrix(cnf_matrix, class_names=class_names, normalize=True,
+                              title='Normalized confusion matrix (Percentages)')
+
+        plt.show()
+
+
+    def plot_confusion_matrix(self, cm, class_names,
+                          normalize=False,
+                          title='Confusion matrix',
+                          cmap=plt.cm.Blues):
+        """
+        This function prints and plots the confusion matrix.
+        Normalization can be applied by setting `normalize=True`.
+        """
+        plt.imshow(cm, interpolation='nearest', cmap=cmap)
+        plt.title(title)
+        plt.colorbar()
+        tick_marks = np.arange(len(class_names))
+        plt.xticks(tick_marks, class_names, rotation=45)
+        plt.yticks(tick_marks, class_names)
+
+        if normalize:
+            cm = 100 * np.round(cm.astype('float') / np.sum(cm), 3)
+            print("Normalized confusion matrix")
+        else:
+            print('Confusion matrix, without normalization')
+
+        print(cm)
+
+        thresh = cm.max() / 2.
+        for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
+            plt.text(j, i, cm[i, j],
+                     horizontalalignment="center",
+                     color="white" if cm[i, j] > thresh else "black")
+
+        plt.tight_layout()
+        plt.ylabel('True label')
+        plt.xlabel('Predicted label')
+
+
+
     def predict_examples(self):
         if not self.fitted:
             raise Exception('You must run grid_search to fit the model first!')
 
-        print 'Predictions for some examples'
+        print 'Predictions on some unseen examples'
 
         for i, prediction in enumerate(self.model.predict(self.data['X_test'][0:5, 3])):
             print '*'*10
@@ -49,6 +114,7 @@ def main():
     clf = CommentClassifier()
     clf.build_pipeline()
     clf.grid_search()
+    clf.predict_test_set()
     clf.predict_examples()
 
 

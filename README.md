@@ -5,15 +5,21 @@ Algorithm for detection of spam in Youtube video comments
 ```
 git clone https://github.com/nicoTrombon/spam-detection-comments.git
 cd spam-detection-comments
-virtualenv .venv
-source .venv/bin/activate
+virtualenv env
+source env/bin/activate
 pip install requirements.txt
 python classifier.py
 ```
 
 # Results
+
+## Prediction on unseen data (withheld test-set)
+![Confusion Matrix on Test Set](ConfusionMatrix.png)
+
+
+## Predictions for some examples
+
 ```
-Predictions for some examples
 **********
 Example: ['z13ttr3z1kybet3io04cfv2icvbtj3ro120' 'ZRSFirelordGaming'
  '2015-05-16T18:17:34.524000'
