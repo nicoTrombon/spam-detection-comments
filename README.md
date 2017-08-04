@@ -11,13 +11,15 @@ source env/bin/activate
 pip install requirements.txt
 ```
 ## Train model and show some examples
+```
 python classifier.py
+```
 ## Predicting on a custom comment
 __on a python shell__
 ```
 >> from classfier import *
 >> your_custom_comment = 'Great video! Really enjoyed it =)'
->> clf = CommentClassifier
+>> clf = CommentClassifier()
 >> clf.build_pipeline()
 >> clf.grid_search()
 >> clf.predict_example(your_custom_comment)
